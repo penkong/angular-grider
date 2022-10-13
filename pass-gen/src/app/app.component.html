@@ -1,0 +1,30 @@
+<h1>pass gen</h1>
+<div>
+  <label for="inputer">Enter Length</label>
+  <input type="text" name="inputer" (input)="onLengthChange($event)">
+</div>
+
+<div>
+  <label for="letters">Use letters</label>
+  <input type="checkbox" (change)="onLetterChange()">
+</div>
+
+<div>
+  <label for="numbers">Use numbers</label>
+  <input type="checkbox" (change)="onNumberChange()">
+</div>
+
+<div>
+  <label for="symbols">Use symbols</label>
+  <input type="checkbox" (change)="onSymbolChange()">
+</div>
+
+<div>
+  <button [disabled]="!lengthOfPass" (click)="onButtonClick()">generate</button>
+</div>
+
+<div *ngIf="password">
+  <label for="gened-pass">ur pass</label>
+  <input type="text" [value]="password">
+</div>
+<div>{{password}}</div>
