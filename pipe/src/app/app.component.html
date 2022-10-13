@@ -1,0 +1,23 @@
+<div>
+  <label for="">Payee name</label>
+  <input type="text" (input)="onNameChange($event)">
+</div>
+{{ named | titlecase }}
+
+<div>
+  <label for="">Date</label>
+  <input type="date" (input)="onDateChange($event)">
+</div>
+{{ data | date: 'MMMM d, y' }}
+
+<div>
+  <label for="">amount</label>
+  <input type="number" name="" id="" (input)="onAmountChange($event)">
+</div>
+{{ amount | currency }}
+
+<div>
+  <label for="">miles</label>
+  <input type="number" (input)="onMilesChange($event)">
+</div>
+{{ miles | convertmile : 'args'}}
