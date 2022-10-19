@@ -1,10 +1,18 @@
 <app-divider> table comp </app-divider>
-<app-table
-  [data]="data"
-  [header]="header"
-  class="striped celled"
-></app-table>
+<app-table [data]="data" [header]="header" class="striped celled"></app-table>
 
-
+<br />
 <app-divider> tabs comp </app-divider>
-<app-tabs></app-tabs>
+<app-tabs>
+  <a
+    class="item"
+    [routerLinkActiveOptions]="{ exact: true }"
+    [routerLink]="['./']"
+    routerLinkActive="active"
+    >Bio</a
+  >
+  <a class="item" routerLink="./companies" routerLinkActive="active"
+    >Companies</a
+  >
+  <a class="item" routerLink="./partners" routerLinkActive="active">Partners</a>
+</app-tabs>
