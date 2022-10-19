@@ -1,0 +1,11 @@
+<app-divider>Modals</app-divider>
+<app-modals *ngIf="visible" (makeItHidden)="onClick()">
+  <div modalTitle>I am title</div>
+  <p>
+    i am reuse
+  </p>
+  <ng-container > modalFooter>
+    <button class="ui button" (click)="onClick()">Close me!</button>
+  </ng-container>
+</app-modals>
+<button (click)="onClick()">modal</button>
