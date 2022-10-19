@@ -2,9 +2,13 @@
   Segment Comp
 </app-divider>
 <app-segment>
-  <select [(ngModel)]="model">
-    <option *ngFor="let item of list" [value]="item">{{item}}</option>
-  </select>
+  <header>
+    <i class="pdf file outline icon"></i>
+    No docs av
+  </header>
+  <button class="ui primary button">
+    add doc
+  </button>
 </app-segment>
 
 <app-divider>
