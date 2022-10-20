@@ -8,9 +8,16 @@
   </thead>
   <tbody>
     <tr *ngFor="let el of pageList">
-      <td>{{ el.title}}</td>
-      <td>{{ el.wordcount}}</td>
-      <td>{{el.snippet}}</td>
+      <td>
+        <a
+          [href]="'https://en.wikipedia.org?curid=' + el.pageid"
+          target="_blank"
+        >
+        {{ el.title }}
+      </a>
+      </td>
+      <td>{{ el.wordcount }}</td>
+      <td [innerHtml]="el.snippet"></td>
     </tr>
   </tbody>
 </table>
