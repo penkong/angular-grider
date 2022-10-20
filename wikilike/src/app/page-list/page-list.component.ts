@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-page-list',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page-list.component.scss']
 })
 export class PageListComponent implements OnInit {
-
+  @Input() pageList: Array<any> = []
   constructor() { }
 
   ngOnInit(): void {
