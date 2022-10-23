@@ -1,0 +1,27 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="cardForm">
+  <app-reuse-input
+    label="name"
+    [control]="$any(cardForm).get('name')"
+  ></app-reuse-input>
+  <app-reuse-input
+    label="card number"
+    [control]="$any(cardForm).get('cardNumber')"
+  ></app-reuse-input>
+  <app-reuse-input
+    label="expiration date (MM/YY)"
+    [control]="$any(cardForm).get('expiration')"
+  ></app-reuse-input>
+  <app-reuse-input
+    label="security code"
+    [control]="$any(cardForm).get('securityCode')"
+  ></app-reuse-input>
+  <button class="button is-primary" [disabled]="cardForm.invalid" type="submit">Submit</button>
+  <button class="button is-warning" type="button" (click)="onReset()">reset</button>
+</form>
+
+<br />
+<hr />
+
+<div>contents: {{ cardForm.value | json }}</div>
+<div>contents: {{ cardForm.valid }}</div>
+<div>erros for name : {{ cardForm.controls.name.errors | json }}</div>
