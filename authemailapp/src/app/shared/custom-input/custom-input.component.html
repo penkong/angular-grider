@@ -1,1 +1,26 @@
-<p>custom-input works!</p>
+<div class="field">
+  <label for="">{{ label }}</label>
+  <input [type]="inputType" [formControl]="control" />
+
+  <div
+    *ngIf="control.dirty && control.touched && control.errors"
+    class="ui pointing red basic label"
+  >
+    <p *ngIf="control.errors['required']">value required</p>
+    <p *ngIf="control.errors['minlength']">
+      value must be at least {{ control.errors["minlength"].requiredLength }} long!
+    </p>
+    <p *ngIf="control.errors['maxlength']">
+      value must be at most {{ control.errors["maxlength"].requiredLength }} long!
+    </p>
+    <p *ngIf="control.errors['pattern']">
+      Invalid Format!
+    </p>
+    <p *ngIf="control.errors['nonUniqueUsername']">
+      username is taken
+    </p>
+    <p *ngIf="control.errors['noConnection']">
+      connection problem
+    </p>
+  </div>
+</div>
