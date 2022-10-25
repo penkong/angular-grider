@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MathValidator } from '../math-validator';
 import { UserCheckValidator } from '../user-check-validator';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -39,8 +40,25 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private validPass: MathValidator,
-    private userCheckValidator: UserCheckValidator
+    private userCheckValidator: UserCheckValidator,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {}
+
+  onSubmit() {
+    if (this.authForm.invalid) return;
+    this.authService.signUp(this.authForm.value).subscribe({
+      next: (res) => {
+        // navigate
+      },
+      error: (err) => {
+        if(!err.status) {
+          this.authForm.setErrors({ noConnection: true})
+        } else {
+          this.authForm.setErrors({ unknownError: true})
+        }
+      },
+    });
+  }
 }
