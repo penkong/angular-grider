@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { AuthService } from './auth.service';
 import { SignOutComponent } from './sign-out/sign-out.component';
+import { AuthGuard } from './auth.guard';
 
 
 
@@ -22,6 +23,7 @@ import { SignOutComponent } from './sign-out/sign-out.component';
     AuthRoutingModule,
     ReactiveFormsModule,
     SharedModule
-  ]
+  ],
+  providers: [ AuthGuard ]
 })
 export class AuthModule { }

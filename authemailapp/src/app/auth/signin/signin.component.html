@@ -28,7 +28,7 @@
     </p>
   </div>
   <div>
-
+    {{ authForm.errors | json}}
     <button
     [disabled]="authForm.errors"
     type="submit"

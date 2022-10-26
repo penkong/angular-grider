@@ -23,9 +23,6 @@ export class SigninComponent implements OnInit {
         Validators.minLength(4),
         Validators.maxLength(20),
       ]),
-    },
-    {
-      validators: [this.validPass.validate],
     }
   );
   constructor(

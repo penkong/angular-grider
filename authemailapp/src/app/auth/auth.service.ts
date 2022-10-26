@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, tap } from 'rxjs';
+import { BehaviorSubject, ReplaySubject, tap, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   url = 'https://api.angular-email.com';
-  signedIn$ = new BehaviorSubject(false);
+  signedIn$ = new BehaviorSubject<boolean | null>(null);
   username$ = new BehaviorSubject('');
 
   constructor(private http: HttpClient) {}
@@ -42,7 +42,12 @@ export class AuthService {
           if (res.username) {
             this.signedIn$.next(true);
             this.username$.next(res.username);
+          } else {
+            this.signedIn$.next(false)
           }
+        }),
+        map((val)=> {
+          return val.authenticated
         })
       );
   }
